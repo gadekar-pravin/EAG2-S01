@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Retro 15‑Puzzle (New Tab)",
+  "version": "1.0.0",
+  "description": "Classic 15‑Puzzle with smooth animations and retro vibes. Replaces the New Tab page.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "offline_enabled": true
+}

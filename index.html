@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Retro 15‑Puzzle</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="topbar">
+      <h1 class="brand" aria-label="Retro 15 Puzzle">15‑PUZZLE</h1>
+      <div class="stats">
+        <div class="stat"><span class="label">Moves</span><span id="moves">0</span></div>
+        <div class="stat"><span class="label">Time</span><span id="time">00:00</span></div>
+        <div class="stat best" title="Session best">
+          <span class="label">Best</span>
+          <span id="best">—</span>
+        </div>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="controls" aria-label="Game controls">
+        <label class="select">
+          <span>Preset</span>
+          <select id="preset">
+            <option value="almost">Almost solved (1)</option>
+            <option value="easy" selected>Easy (10)</option>
+            <option value="medium">Medium (30)</option>
+            <option value="hard">Hard (60)</option>
+            <option value="expert">Expert (120)</option>
+            <option value="diabolical">Diabolical (200)</option>
+          </select>
+        </label>
+        <button id="newGame" class="btn primary" aria-label="Start new game">New game</button>
+        <button id="reset" class="btn" aria-label="Reset to solved">Reset</button>
+      </section>
+
+      <section class="board-wrap">
+        <div id="board" class="board" role="application" aria-label="15 puzzle board" aria-live="polite"></div>
+        <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+        <div id="winBanner" class="win-banner" hidden>
+          <div class="win-card">
+            <div class="win-title">Solved!</div>
+            <div class="win-sub" id="winStats"></div>
+            <button id="playAgain" class="btn primary">Play again</button>
+          </div>
+        </div>
+        <div class="scanlines" aria-hidden="true"></div>
+      </section>
+
+      <p class="hint">
+        Click tiles or use <strong>Arrow keys</strong> / <strong>WASD</strong> / <strong>HJKL</strong>.
+      </p>
+    </main>
+
+    <footer class="foot">
+      <small>Session only · No data is stored.</small>
+    </footer>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
