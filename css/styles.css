@@ -94,6 +94,19 @@ select {
   aspect-ratio: 1 / 1;
 }
 
+/* Board + Hint layout */
+.play {
+  display: flex;
+  align-items: flex-start;
+  gap: clamp(12px, 2vmin, 20px);
+}
+.hint-panel {
+  flex: 0 0 clamp(220px, 28ch, 320px);
+}
+.play .board-wrap {
+  flex: 0 0 auto;
+}
+
 .board {
   position: absolute;
   inset: 0;
@@ -216,16 +229,17 @@ select {
 
 /* AI hint panel */
 .ai-hint {
-  margin: 6px 0 0;
-  font-size: 14px;
-  opacity: .95;
+  margin: 8px 0 0;
+  font-size: clamp(16px, 1.3vw + 0.5rem, 18px);
+  line-height: 1.4;
+  opacity: .98;
   background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.12);
-  padding: 8px 10px;
-  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.16);
+  padding: 10px 12px;
+  border-radius: 10px;
   width: 100%;
-  max-width: min(92vmin, 600px);
-  min-height: 22px;
+  max-width: none;
+  min-height: 44px;
 }
 
 /* Loading state */
@@ -241,4 +255,10 @@ select {
 @media (max-width: 520px) {
   .stats { gap: 12px; }
   .brand { letter-spacing: 2px; }
+}
+
+/* Stack board and hint on smaller widths */
+@media (max-width: 860px) {
+  .play { flex-direction: column; align-items: center; }
+  .hint-panel { flex-basis: auto; width: min(92vmin, 600px); }
 }

@@ -53,23 +53,27 @@
 
       </section>
 
-      <section class="board-wrap">
-        <div id="board" class="board" role="application" aria-label="15 puzzle board" aria-live="polite"></div>
-        <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
-        <div id="winBanner" class="win-banner" hidden>
-          <div class="win-card">
-            <div class="win-title">Solved!</div>
-            <div class="win-sub" id="winStats"></div>
-            <button id="playAgain" class="btn primary">Play again</button>
+      <section class="play">
+        <section class="board-wrap">
+          <div id="board" class="board" role="application" aria-label="15 puzzle board" aria-live="polite"></div>
+          <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+          <div id="winBanner" class="win-banner" hidden>
+            <div class="win-card">
+              <div class="win-title">Solved!</div>
+              <div class="win-sub" id="winStats"></div>
+              <button id="playAgain" class="btn primary">Play again</button>
+            </div>
           </div>
-        </div>
-        <div class="scanlines" aria-hidden="true"></div>
+          <div class="scanlines" aria-hidden="true"></div>
+        </section>
+
+        <aside class="hint-panel" aria-label="AI hint panel">
+          <div id="aiHint" class="ai-hint" aria-live="polite" role="status"></div>
+        </aside>
       </section>
 
       <p class="hint">
         Click tiles or use <strong>Arrow keys</strong> / <strong>WASD</strong> / <strong>HJKL</strong>.
-              <div id="aiHint" class="ai-hint" aria-live="polite" role="status"></div>
-
       </p>
     </main>
 
