@@ -35,6 +35,22 @@
         </label>
         <button id="newGame" class="btn primary" aria-label="Start new game">New game</button>
         <button id="reset" class="btn" aria-label="Reset to solved">Reset</button>
+                <label class="select">
+          <span>Hint</span>
+          <select id="hintType">
+            <option value="direct" selected>Direct</option>
+            <option value="strategic">Strategic</option>
+          </select>
+        </label>
+        <label class="select">
+          <span>LLM</span>
+          <select id="llm">
+            <option value="openai">OpenAI</option>
+            <option value="gemini">Gemini</option>
+          </select>
+        </label>
+        <button id="getHint" class="btn" aria-label="Get AI hint">Get hint</button>
+
       </section>
 
       <section class="board-wrap">
@@ -52,6 +68,8 @@
 
       <p class="hint">
         Click tiles or use <strong>Arrow keys</strong> / <strong>WASD</strong> / <strong>HJKL</strong>.
+              <div id="aiHint" class="ai-hint" aria-live="polite" role="status"></div>
+
       </p>
     </main>
 

@@ -214,6 +214,29 @@ select {
 .hint { opacity: .8; margin: 8px 0 0; }
 .foot { opacity: .6; text-align: center; }
 
+/* AI hint panel */
+.ai-hint {
+  margin: 6px 0 0;
+  font-size: 14px;
+  opacity: .95;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 8px 10px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: min(92vmin, 600px);
+  min-height: 22px;
+}
+
+/* Loading state */
+.btn.loading { pointer-events: none; opacity: .7; }
+
+/* Highlight the suggested tile */
+.tile.hint {
+  box-shadow: 0 0 0 3px rgba(0,255,255,.6), 0 0 16px rgba(0,255,255,.35);
+}
+
+
 /* Responsive tweaks */
 @media (max-width: 520px) {
   .stats { gap: 12px; }

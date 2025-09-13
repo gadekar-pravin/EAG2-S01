@@ -175,6 +175,19 @@ export class Game {
 
   /* ---------- Public API ---------- */
 
+  getState() {
+    return { board: [...this.board], blank: this.blank };
+  }
+
+  flashTile(val) {
+    const el = this.tiles[val];
+    if (el) {
+      el.classList.add("hint");
+      setTimeout(() => el.classList.remove("hint"), 900);
+    }
+  }
+
+
   async scramble(preset = "medium") {
     if (this.locked) return;
     const depths = {
