@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const hintTypeSel = $("#hintType");
   const llmSel = $("#llm");
   const hintOut = $("#aiHint");
+  const promptOut = $("#aiPrompt");
 
   hintBtn?.addEventListener("click", async () => {
     try {
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       });
 
       hintOut.textContent = res.message;
+      if (promptOut) promptOut.textContent = res.prompt || "";
 
       if (res.type === "direct" && Number.isFinite(res.tile)) {
         if (typeof game.flashTile === "function") game.flashTile(res.tile);
@@ -57,6 +59,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       }
     } catch (err) {
       hintOut.textContent = `Error: ${err?.message || err}`;
+      if (promptOut) promptOut.textContent = "";
     } finally {
       hintBtn.disabled = false;
       hintBtn.classList.remove("loading");

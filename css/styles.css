@@ -100,12 +100,33 @@ select {
   align-items: flex-start;
   gap: clamp(12px, 2vmin, 20px);
 }
+.about-panel {
+  flex: 0 0 clamp(220px, 28ch, 320px);
+}
 .hint-panel {
   flex: 0 0 clamp(220px, 28ch, 320px);
 }
 .play .board-wrap {
   flex: 0 0 auto;
 }
+
+/* About card visuals */
+.about-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: clamp(14px, 1.1vw + 0.45rem, 16px);
+  line-height: 1.45;
+}
+.about-title {
+  font-weight: 800;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  opacity: .95;
+}
+.about-points { margin: 0; padding-left: 18px; }
+.about-points li { margin: 4px 0; }
 
 .board {
   position: absolute;
@@ -242,12 +263,32 @@ select {
   min-height: 44px;
 }
 
+/* Full prompt block (below AI hint) */
+.ai-prompt {
+  margin: 8px 0 0;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", monospace;
+  font-size: clamp(12px, 0.95vw + 0.35rem, 14px);
+  line-height: 1.35;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 240px;
+  overflow: auto;
+}
+
 /* Loading state */
 .btn.loading { pointer-events: none; opacity: .7; }
 
 /* Highlight the suggested tile */
 .tile.hint {
-  box-shadow: 0 0 0 3px rgba(0,255,255,.6), 0 0 16px rgba(0,255,255,.35);
+  /* Fill entire tile with a subtle cyan tint while keeping text readable */
+  box-shadow:
+    inset 0 0 0 9999px rgba(0,255,255,.18), /* full-tile fill below content */
+    0 0 0 3px rgba(0,255,255,.75),          /* edge ring */
+    0 0 18px rgba(0,255,255,.45);           /* outer glow */
 }
 
 
@@ -260,5 +301,6 @@ select {
 /* Stack board and hint on smaller widths */
 @media (max-width: 860px) {
   .play { flex-direction: column; align-items: center; }
+  .about-panel,
   .hint-panel { flex-basis: auto; width: min(92vmin, 600px); }
 }

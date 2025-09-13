@@ -278,12 +278,12 @@ export async function requestAIHint({ board, blank, hintType = "direct", provide
       if (step) {
         const { tile, tileDir } = firstMoveTileAndDir(board, blank, step);
         const message = `Move tile ${tile} ${tileDir}.`;
-        const result = { type: "direct", message, tile, direction: tileDir };
+        const result = { type: "direct", message, tile, direction: tileDir, prompt };
         cache.set(sig, result);
         return result;
       }
     }
-    const result = { type: hintType, message: "Hint unavailable. Try again." };
+    const result = { type: hintType, message: "Hint unavailable. Try again.", prompt };
     cache.set(sig, result);
     return result;
   }
@@ -293,12 +293,12 @@ export async function requestAIHint({ board, blank, hintType = "direct", provide
     const tile = Number(parsed.tile);
     const direction = String(parsed.direction || "").toLowerCase();
     const text = parsed.text || `Move tile ${tile} ${direction}.`;
-    const result = { type: "direct", message: text, tile, direction };
+    const result = { type: "direct", message: text, tile, direction, prompt };
     cache.set(sig, result);
     return result;
   } else {
     const text = parsed?.text || "Focus on placing tiles 1–4 across the top row.";
-    const result = { type: "strategic", message: text };
+    const result = { type: "strategic", message: text, prompt };
     cache.set(sig, result);
     return result;
   }

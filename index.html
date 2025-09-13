@@ -54,6 +54,18 @@
       </section>
 
       <section class="play">
+        <aside class="about-panel" aria-label="About the extension">
+          <div class="about-card">
+            <div class="about-title">How it works</div>
+            <ul class="about-points">
+              <li>Classic 15‑puzzle — click or use arrows/WASD/HJKL.</li>
+              <li>Choose a scramble preset; moves and time are tracked.</li>
+              <li>Click “Get hint” to highlight the suggested tile.</li>
+              <li>Switch hint type for direct or strategic guidance.</li>
+            </ul>
+          </div>
+        </aside>
+
         <section class="board-wrap">
           <div id="board" class="board" role="application" aria-label="15 puzzle board" aria-live="polite"></div>
           <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
@@ -69,6 +81,7 @@
 
         <aside class="hint-panel" aria-label="AI hint panel">
           <div id="aiHint" class="ai-hint" aria-live="polite" role="status"></div>
+          <pre id="aiPrompt" class="ai-prompt" aria-label="Prompt sent to AI"></pre>
         </aside>
       </section>
 
